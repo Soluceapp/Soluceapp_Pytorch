@@ -1,0 +1,124 @@
+@charset "UTF8";
+body {background-image:url('../images/fond1.jpg');background-attachment:fixed;width:auto;color:white;font-family:"verdana"; margin-left:5%;margin-right:10%}
+div {position: relative;animation: mouvement 4s;animation-direction: alternate;}
+@keyframes mouvement {  from {left: 200px;}  to {left: 0px;}}
+
+
+/* Structuration du style globale*/
+div.container-grid-maitre{display:grid; grid-template-columns: 1fr; grid-template-rows: auto;
+grid-template-areas:"entete" "principal" "lateral " "pied "; padding:5%} 
+header.style1{grid-area:entete;font-weight:bolder;padding:10px}
+section.style2{grid-area:principal;font-weight:bolder;}
+aside.style3{grid-area:lateral;font-weight:normal;padding:10px;text-align: center;}
+footer.style4{grid-area:pied;font-weight:normal;padding:10px;text-align: center;}
+
+
+/* Structuration du style des onglets*/
+div.container-flex-onglets{display:flex;flex-direction:row;flex-wrap:wrap; height:auto; align-items:flex-start;}
+div.item-flex{ padding:4px}
+div.order1{order:1;flex-grow:1;text-align: center;}
+div.order2{order:2;flex-grow:1;text-align: center;}
+div.order3{order:3;flex-grow:1;text-align: center;}
+div.order4{order:4;flex-grow:1;text-align: center;}
+div.order5{order:5;flex-grow:1;text-align: center;}
+
+/* Structuration du style de l'article*/
+div.container-flex-article{display:flex;align-items:stretch; }
+div.article-flex{ padding:4px}
+.style22{width:800px; height:700px;}
+.style24{width:800px; height:700px;}
+
+@media screen and (max-width:768px) 
+{
+	div.container-flex-onglets{display:flex;flex-direction:row;flex-wrap:wrap; height:auto; align-items:flex-start;}
+	div.item-flex{padding:4px}
+div.order1{order:1;flex-grow:1;text-align: center;}
+div.order2{order:2;flex-grow:1;text-align: center;}
+div.order3{order:3;flex-grow:1;text-align: center;}
+div.order4{order:4;flex-grow:1;text-align: center;}
+div.order5{order:5;flex-grow:1;text-align: center;grid-column:1;}
+
+div.container-flex-article{display:flex;flex-direction:column;align-items:flex-start;}
+div.article-flex{ padding:4px}
+div.order8{order:8;flex-grow:1; text-align: justify;width:100%}
+div.order9{order:9;flex-grow:1; width:100%;text-align: center;}
+.style13{height:400px; padding:2px}
+
+}
+
+@media screen and (max-width:768px) 
+{.style22{width:600px; height:500px;}
+.style24{width:100%; height:auto;}
+}
+/* Détails de style*/
+.style5{text-align: center;text-decoration: underline 5px #221fb3;}
+.style6{text-align: center;}
+.style7{text-align: center;}
+.style8{text-align: center;}
+.style11{text-align: center;text-decoration: underline 3px #221fb3;}
+.style12{font-weight:normal;}
+.style13{display:block; margin-left:auto; margin-right:auto;width:50%}
+.style14:-webkit-any-link {color : white;background-color:transparent; background-repeat: Transparent no-repeat; 
+-webkit-box-shadow:none;  border: none; cursor:pointer; overflow:hidden; outline: none; text-decoration:none;} 
+.style15{ width:"auto";height:400px;}
+.style16{ margin-left:auto; margin-right:auto;width:100%;text-align: center;font-size: 16pt; border-style:solid; border-color:#660033;}
+.style17{background-color:#FFFFFF;border-style:solid; border-color:#660033;color:#660033;}
+.style18{background-color:#660033;}
+
+.style20:-webkit-any-link{text-decoration:none ;color : #660033;}
+.style21{background-color:rgb(192, 192, 192);border-style:solid; border-color:#660033;color:#660033;}
+
+.style23{display:flex;justify-content:center;align-items:center; }
+.style25{border-style:solid; margin-inline: 15px; padding:20px; height:auto; text-align:center;display:block; justify-content:center; align-items:center}
+.style26{margin:15px;}
+
+/* Apparence du bouton */
+.dropbtn {
+  background-color: rgba(34,31,179,0.8);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius:20% ;
+  border:5px outset rgba(55,131,231,0.5);
+}
+
+/* Comportement au passage de la souris */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgb(92, 45, 181);
+}
+
+/* Déroulement du menu*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border-radius:20% ;
+}
+
+/* Contenu du déroulement */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(241,241,241,0.7);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius:20% ;
+}
+
+/* Contenu du déroulement */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius:20% ;
+}
+
+/* changement de couleur au passage du bouton */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Montre un menu */
+.show {display:block;}
+
