@@ -1,14 +1,25 @@
-<html>
-<h1>register</h1>
+{% include "./_base.html"%}
 
-<form method="POST" autocomplete="off">
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %}
 
-    {% csrf_token%}
+{% block body %}
 
-    {{form.as_p}}
+<br>
+<form method="post">
+    <div style="margin:20px"><div class="style25">
 
-    <input type="submit" value="Confirmer"/>
+            <h4>Inscription</h4><br>
+            
+            {% csrf_token%}
+            {{form.as_p}}
 
+            <br><input type="button" class="btn btn-primary btn-lg" onclick="sub_menu34()" value="Mentions légales">
+            <button type="submit" class="btn btn-primary btn-lg">Valider</button>
+</div></div>
 </form>
 
-</html>
+<br><br>
+{% endblock %}
+{% include "./_footer.html"%} 

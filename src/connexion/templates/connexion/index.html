@@ -1,48 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}soluceapp Pytorch{% endblock %}</title>
-        {% block stylesheets %}
+{% include "./_base.html"%}
 
-        {% endblock %}
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %}
 
-{% if user.is_authenticated %}
-<p>Connecté sous {{user.username}}|<a href="{% url 'connexion:logout'%}">Déconnexion</a> </p>
-{% else %}
-<p><a href="{% url 'connexion:login'%}">Connexion</a> </p>
-<p><a href="{% url 'connexion:register'%}">Inscription</a> </p>
-{% endif %}
-
-
-Soluceapp Pytorch
 
 {% block body %}
-
+<br>
 <form method="post">
-  
+    <div style="margin:20px"><div class="style25">
+        {% if user.is_authenticated %}  {{message}}
+            <p>Connecté sous {{user.username}}|<a href="{% url 'connexion:logout'%}">Déconnexion</a> </p>
+        {% else %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="">Se déconnecter</a>
-        </div>
-    {% endif %}
-<div style="margin:20px"><div class="style25">
-    <h4 >Connectez-vous</h4>
+            <h4 >Connectez-vous</h4>
+            {% csrf_token%}
+            {{form.as_p}}
+            <input class="btn btn-primary"  style="margin:5px" type="submit" value="se connecter">
+            <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu6()" value="Mot de passe oublié">
+            <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu9()" value="Inscription">
+        
+        {% endif %}
 
-    <label for="inputEmail">Identifiant (mail) &nbsp;</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  autocomplete="email" required autofocus>
-    <br><br>
-    <label for="inputPassword">Mot de passe &nbsp;</label>
-    <input type="password" name="password" id="inputPassword"  autocomplete="current-password" required>
-    <br><br>
-    <input type="hidden" name="_csrf_token" value="">
-    <button class=" btn btn-primary" style="margin:5px" type="submit">Valider</button>
-    <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu6()" value="Mot de passe oublié">
-    <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu9()" value="Inscription">
-    <br><br>
 </div></div>
 </form>
-{% endblock %}
 
-</html>
+<br><br>
+{% endblock %}
+{% include "./_footer.html"%} 

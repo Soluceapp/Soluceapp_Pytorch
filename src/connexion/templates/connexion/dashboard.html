@@ -1,5 +1,21 @@
-<html>
-<h1>dashboard</h1>
+{% if user.is_authenticated %}
+{% include "./_base.html"%}
 
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor %}
 
-</html>
+{% block body %}
+<div style="margin:20px"><div class="style25">
+<br><h4>Bienvenue {{user}}</h4>
+<br> L'application Pytorch.Soluceapp peut vous permettre d'obtenir des prévisions en utilisant des données brutes que vous lui fournissez.
+Configurez votre modèle d'IA, configurez vos données brutes et accédez enfin aux prévisions quand vous êtes prêts.
+<br><br>
+</div></div>
+
+<br><br>
+{% endblock %}
+{% include "./_footer.html"%} 
+{% else %}
+<script> window.location.assign("http://localhost:20000/logout");</script>
+{%endif%} 
