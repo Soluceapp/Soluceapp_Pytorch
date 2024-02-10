@@ -1,0 +1,9 @@
+<!-- Liste des onglets -->
+
+<div class="container-flex-onglets">
+    {% if user.is_authenticated %}
+    <div class="item-flex order0" class="style8" class="dropdown"><button onclick="sub_menu38()" class="dropbtn">Configurer le<br>modèle d'IA</button><div id="myDropdown6" class="dropdown-content"></div></div>
+    <div class="item-flex order1" class="style8" class="dropdown"><button onclick="sub_menu37()" class="dropbtn">Configurer mes<br>données brutes</button><div id="myDropdown6" class="dropdown-content"></div></div>
+    <div class="item-flex order2" class="style8" class="dropdown"><button onclick="sub_menu39()" class="dropbtn">Accéder aux<br>prévisions</button><div id="myDropdown6" class="dropdown-content"></div></div>
+    <div class="item-flex order3" class="style8" class="dropdown"><button onclick="sub_menu10()" class="dropbtn">Se<br>déconnecter</button><div id="myDropdown6" class="dropdown-content"></div></div>
+    {%endif%} 
