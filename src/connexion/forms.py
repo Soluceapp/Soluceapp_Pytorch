@@ -7,6 +7,7 @@ class CreateUserForm(UserCreationForm):
 
         model = User
         fields =['username', 'email', 'password1', 'password2']
+        labels = {'username':'Votre nom ','email':'Votre email ','password1':'Votre mot de passe ','email':'Votre mot de passe (confirme) '}
 
 
 

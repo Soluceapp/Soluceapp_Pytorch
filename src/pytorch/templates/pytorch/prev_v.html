@@ -1,14 +1,16 @@
 {% if user.is_authenticated %}
 {% include "./_base.html"%}
-
+{%load static%}
 {% for message in messages %}
 <p>{{ message }}</p>
 {% endfor %}
 
 {% block body %}
 <div style="margin:20px"><div class="style25">
-<br><h4>Prévisions de {{user}}</h4>
-<br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum vel voluptatum enim molestiae id quam minus nulla voluptas dicta repudiandae cupiditate ullam praesentium, expedita cum rem obcaecati aut iusto libero?
+<br><h4>Vos prévisions</h4>
+<br><p style="text-align:justify;"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum vel voluptatum enim molestiae id quam minus nulla voluptas dicta repudiandae cupiditate ullam praesentium, expedita cum rem obcaecati aut iusto libero?</p>
+<br><br>
+<img src="{% static 'images/recherche.png' %}"  width="100%" height="auto">
 <br><br>
 </div></div>
 
