@@ -6,9 +6,6 @@ import os
 import sys
 import traceback
 
-
-
-
 def console_entry() -> None:
     try:
         

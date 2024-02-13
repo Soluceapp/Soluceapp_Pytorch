@@ -1,4 +1,4 @@
-{% include "./_base.html"%}
+{% include "../_partials/_base.html"%}
 
 {% for message in messages %}
 <p>{{ message }}</p>
@@ -10,16 +10,16 @@
 <form method="post">
     <div style="margin:20px"><div class="style25">
 
-            <h4>Inscription</h4><br>
+            <h4>Changement de mot de passe</h4><br>
             
             {% csrf_token%}
             {{form.as_p}}
 
-            <br><input type="button" class="btn btn-primary btn-lg" onclick="sub_menu34()" value="Mentions légales">
+            <br><input type="button" class="btn btn-primary btn-lg" onclick="sub_menu7()" value="Retour accueil">
             <button type="submit" class="btn btn-primary btn-lg">Valider</button>
 </div></div>
 </form>
 
 <br><br>
 {% endblock %}
-{% include "./_footer.html"%} 
+{% include "../_partials/_footer.html"%} 

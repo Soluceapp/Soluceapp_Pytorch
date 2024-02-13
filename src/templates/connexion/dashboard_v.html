@@ -1,9 +1,6 @@
 {% if user.is_authenticated %}
-{% include "./_base.html"%}
+{% include "../_partials/_base.html"%}
 {%load static%}
-{% for message in messages %}
-<p>{{ message }}</p>
-{% endfor %}
 
 {% block body %}
 <div style="margin:20px"><div class="style25">
@@ -17,7 +14,7 @@ Configurez votre modèle d'IA, configurez vos données brutes et accédez enfin 
 
 <br><br>
 {% endblock %}
-{% include "./_footer.html"%} 
+{% include "../_partials/_footer.html"%} 
 {% else %}
 <script> window.location.assign("http://localhost:20000/logout");</script>
 {%endif%} 

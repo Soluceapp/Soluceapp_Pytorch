@@ -3,8 +3,27 @@ from charge.models import IAmodel
 
 
 class IAmodelform (forms.ModelForm):
-   # iamodel_name = forms.ModelChoiceField(queryset=iamodel_name.objects.All(),label ="Nom du modèle d'IA")
+
     class Meta:
         model = IAmodel
         fields = ['iamodel_name','user','nbr_indicator']
-        labels = {'iamodel_name':'Nom du modèle d\'IA ','user':'Propriétaire ','nbr_indicator':'Nombre d\'indicateurs '}
+        labels = {'iamodel_name':'Nom du modèle ','nbr_indicator':'Nombre d\'indicateurs '}
+
+    def clean_nbr_indicator(self):
+        nbr_indicator = self.cleaned_data['nbr_indicator']
+        if nbr_indicator<=0:
+            nbr_indicator=-nbr_indicator
+        return nbr_indicator
+'''
+    def __init__(self, user, *args, **kwargs):
+        super(IAmodelform, self).__init__(*args, **kwargs)
+        self.user = user
+
+    def save(self, commit=True):
+        instance = super(IAmodelform, self).save(commit=False)
+        instance.user = self.user
+        if commit:
+            instance.save()
+        return instance
+'''
+    
