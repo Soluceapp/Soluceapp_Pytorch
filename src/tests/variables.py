@@ -1,0 +1,2 @@
+EMAIL_HOST_USER = "test.test@test.com"
+EMAIL_HOST_PASSWORD = "123456"

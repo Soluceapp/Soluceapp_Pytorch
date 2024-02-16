@@ -6,7 +6,7 @@ class IAmodelform (forms.ModelForm):
 
     class Meta:
         model = IAmodel
-        fields = ['iamodel_name','user','nbr_indicator']
+        fields = ['iamodel_name','nbr_indicator']
         labels = {'iamodel_name':'Nom du modèle ','nbr_indicator':'Nombre d\'indicateurs '}
 
     def clean_nbr_indicator(self):

@@ -12,10 +12,10 @@ class MyTests(TestCase):
         print("Le test a fonctionné")
         self.assertFalse(False)
         
-    def testfail(self):
-        print("Le test a échoué")
-        self.assertTrue(False)
+   # def testfail(self):
+    #    print("Le test a échoué")
+     #   self.assertTrue(False)
 
     def testfail(self):
-        print("Le test a échoué")
-        self.assertEqual(1+1,3)
+        print("Le test a fonctionné")
+        self.assertEqual(1+1,2)

@@ -9,5 +9,5 @@ urlpatterns = [
     path('creation_model',views.creamia_user,name="creamia"),
     path('chargement_model',views.chargemia_user,name="chargemia"),
     path('previsions',views.prevision_user,name="prevision"),
-    path('board/', include('charge.urls')),
+    path('search/', include('charge.urls')),
 ]
