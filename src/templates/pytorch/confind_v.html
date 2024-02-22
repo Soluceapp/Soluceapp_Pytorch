@@ -7,16 +7,21 @@
 
 <div style="margin:20px"><div class="style25">
 <br><h4>Choix du modèle</h4>
-<br><p style="text-align:justify;"> Vous voulez créer le modèle. Donnez un nom à votre modèle de résolution pour le sauvegarder puis décrire les indicateurs analysés. Ces indicateurs appelés aussi coefficients sont 
+<br><p style="text-align:justify;"> Vous devez choisir un modèle de résolution qui est sauvegardé ou le créer puis décrire les indicateurs analysés. Ces indicateurs appelés aussi coefficients sont 
 les variables numériques qui impactent les données brutes afin d'obtenir des prévisions.</p>
-<br><br>
+
+<br><span style="text-decoration:underline; text-align:center;">Création d'un nouveau modèle</span><br><br>
 <form method="POST">
 	{%csrf_token%}
-	{{form.as_p}}
-	<br><br><button type="submit" class="btn btn-primary btn-lg">Confimer</button>
+	{{formind.as_p}}
+	<button type="submit" >Créer</button>
 	
-</form><button onclick="sub_menu38()" class="btn btn-primary btn-lg" style="margin:10px">Retour</button>
+</form>
+
 <br><br>
+
+
+
 <img src="{% static 'images/AI-Model.jpg' %}"  width="100%" height="auto">
 <br><br>
 </div></div>

@@ -6,8 +6,7 @@ app_name="pytorch"
 
 urlpatterns = [
     path('configuration_model',views.confmia_user,name="confmia"),
-    path('creation_model',views.creamia_user,name="creamia"),
-    path('chargement_model',views.chargemia_user,name="chargemia"),
+    path('configuration_indicateur',views.confind_user,name="confind"),
     path('previsions',views.prevision_user,name="prevision"),
     path('search/', include('charge.urls')),
 ]

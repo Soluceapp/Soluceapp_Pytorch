@@ -7,6 +7,20 @@
 <div style="margin:20px"><div class="style25">
 <br><h4>Vos prévisions</h4>
 <br><p style="text-align:justify;"> Vous pouvez sauvegarder et comparer vos prévisions afin d'ajuster votre modèle Deep Learning.</p>
+
+{%if request.session.model_name%}
+Le modèle qui va être utilisé : {{request.session.model_name}}
+{%endif%}
+
+{%if request.session.nbindicateur%}
+Les indicateurs : {{request.session.nbindicateur}}
+{%endif%}
+
+
+
+
+
+
 <br><br><button type="submit" class="btn btn-primary btn-lg">Lancer le calcul</button>
 <button onclick="sub_menu37()" class="btn btn-primary btn-lg">Charger une prévision</button>
 <br><br>
