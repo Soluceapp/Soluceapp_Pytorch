@@ -1,3 +1,8 @@
+"""
+Etre capable d'envoyer un mail
+"""
+
+
 from django.test import TestCase
 from unittest import TestCase
 from django.core.mail import EmailMessage
@@ -7,8 +12,8 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from tests.variables import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
-
 class EmailTestCase(TestCase):
+    
     def setUp(self) :
         EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
         EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
@@ -24,7 +29,9 @@ class EmailTestCase(TestCase):
         from_email = 'contact@soluceapp.com'
         to = 'test.test@test.com'
         message = EmailMessage(subject=subject, body=plain_message, from_email=from_email, to=(to,))
-        with open('tests/attachement.pdf') as file:
+        with open('C:/Users/Expertom/soluceapp_pytorch/src/tests/attachement.pdf') as file:
             message.attach('attachment.pdf',file.read(),'file/pdf')
         message.send()
         return print('Message envoyé')
+
+       

@@ -6,18 +6,19 @@
 {% block body %}
 
 <div style="margin:20px"><div class="style25">
-<br><h4>Choix des données</h4>
-<br><p style="text-align:justify;">Vous pouvez charger des données déjà sauvegardées.</p>
+<br><h4>Charger en masse des données</h4>
+<br><p style="text-align:justify;">Charger les données en masse pour trouver la résolution du système recherché.</p>
 <br><br>
 <form method="POST">
 	{%csrf_token%}
 	{{form.as_p}}
+
+
 	<br><br><button type="submit" class="btn btn-primary btn-lg">Confirmer</button>
 	
 	
 </form>
 
-<button onclick="sub_menu37()" class="btn btn-primary btn-lg" style="margin:10px">Retour</button>
 <br><br>
 <img src="{% static 'images/configpython.png' %}"  width="100%" height="auto">
 </div></div>

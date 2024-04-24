@@ -1,3 +1,33 @@
 Author : Thomas Vervisch
 
 Soluceapp Pytorch is a Python application that aims to transform vast masses of data into a system that can be solved by pytorch. Authentication access allows the user to sign up for this free service. The purpose of the app is to use it for research purposes. The algorithms used will translate the data into a system translated by artificial intelligence models.
+
+Reste à faire :
+
+Coeur de l'application : Etape avant API création de matrice
+0/ Etape projet : Créer un outil sur internet permettant de trouver une solution à un système (x,y,z,y)
+Test être capable de résoudre le système suivant :
+4x + 5y -0.5z +8w = 2
+3x + 2y +7z + 3w = 1
+-x -4y +4z -3w = 3
+x +7y +3z +2y = 1
+
+x=-6.89 y=-0.72  z=1.48  w= 4.24  
+
+- enregistrement des matrices en base de données à finaliser : formulaire solide à créer.
+- classe d'opération sur les matrices à créer.
+- view de présentation de la matrice calculée.
+
+Présentation, ergonomie et sécurité :
+1/ Inscription : enlever  "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+2/ Configurer le système d'envoie de mail de confirmation et de changement de mot de passe.
+3/ Insertion de données :
+- indicateurs négatifs à corriger
+- 
+4/ Suppression du modèle non fait.
+
+Coeur de l'application : Création de l'API
+0/ Création de la classe de filtrage massif
+1/ Création de la classe de réalisation d'opération massif 
+1/ Création de la fonction threading
+

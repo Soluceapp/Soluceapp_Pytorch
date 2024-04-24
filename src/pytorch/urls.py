@@ -5,8 +5,8 @@ from . import views
 app_name="pytorch"
 
 urlpatterns = [
-    path('configuration_model',views.confmia_user,name="confmia"),
-    path('configuration_indicateur',views.confind_user,name="confind"),
+    path('config_system',views.confsys_user,name="confsys"),
+    path('solution_pytorch',views.solution_user,name="solution"),
     path('previsions',views.prevision_user,name="prevision"),
     path('search/', include('charge.urls')),
 ]
