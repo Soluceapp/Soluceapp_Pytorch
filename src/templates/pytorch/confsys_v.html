@@ -12,32 +12,27 @@
 
 
 
-<form method="POST">
+<form  method="POST" name="equaform">
 
 	{%csrf_token%}
 	{{form.as_p}}
 	<br>    
 	<ul>
         {% for key, value in context.items %}
-            <li>{{ value }}</li>
+            <li>{{ value |safe}}</li>
         {% endfor %}
     </ul>
 	<br><br>
-	<button type="submit" name="action" value="suppr">+</button>
+	<button type="submit" name="action" value="add_form" formnovalidate onclick="mysubmit()">+</button>
+	<button type="submit" name="action" value="supprime" formnovalidate >-</button>
+	<button type="submit" name="action" value="efface" formnovalidate >X</button>
+	<button type="submit" name="action" value="solution" formnovalidate>Trouver la solution</button>
 
-
-<form2 method="POST" >
-	{% csrf_token %}
-	<button type="submit" name="action" value="supprime">-</button>
-	<button type="submit" name="action" value="efface">X</button>
-	<button type="submit" name="action" value="solution">Trouver la solution</button>
-</form2>
-	
 </form>
-
+<script> function mysubmit(){var form=document.getElementsByname('equaform')[0];form.submit(); form.reset();return false;}</script>
 
 <br><br>
-<img src="{% static 'images/AI-Model.jpg' %}"  width="100%" height="auto">
+<img src="{% static 'images/neurone2.png' %}"  width="100%" height="auto">
 <br><br>
 </div></div>
 

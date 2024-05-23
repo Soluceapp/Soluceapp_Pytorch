@@ -2,6 +2,9 @@ Author : Thomas Vervisch
 
 Soluceapp Pytorch is a Python application that aims to transform vast masses of data into a system that can be solved by pytorch. Authentication access allows the user to sign up for this free service. The purpose of the app is to use it for research purposes. The algorithms used will translate the data into a system translated by artificial intelligence models.
 
+Fait :
+- Système d'authentification et de récupération de mot de passe.
+
 Reste à faire :
 
 Coeur de l'application : Etape avant API création de matrice

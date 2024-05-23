@@ -1,20 +1,22 @@
 import torch
 import re
+from .nettoyage import Nettoyage
 
 class System:
 
-    def __init__(self, list_system, list_total):
-        self._list_system = torch.tensor(list_system, dtype=torch.float)  # Convertir en tenseur PyTorch
-        self._list_total = torch.tensor(list_total, dtype=torch.float)  # Convertir en tenseur PyTorch
+    def __init__(self, partie_gauche, partie_droite):
+        
+        self._partie_gauche = partie_gauche
+        self._partie_droite  = partie_droite
 
-    def resolv(self):
-        solution_test = torch.linalg.solve(self._list_system, self._list_total)  # Utiliser la fonction de résolution de PyTorch
-        solution_arrondie = torch.round(solution_test * 100) / 100  # Arrondir à 2 décimales
-        return solution_arrondie
-    
-    def creamatrice(request):# sépare en deux dico_equation puis transforme en matrice
+    # 
+    # Sépare en deux dico_equation puis transforme en matrice la session (qui a été sécurisée)
+    # @ param request : session dico_equation : dictionnaire
+    # @ session partie_gauche,partie_droite : matrice
+    #
+    def decompose_equation(request):
         # sépare en deux dico_equation
-        dictionnaire = request.session['dico_equation']
+        dictionnaire = Nettoyage.nettoyer_dictionnaire(request.session['dico_equation'])
         partie_gauche = {}
         partie_droite = {}   
         for cle, valeur in dictionnaire.items():
@@ -51,13 +53,39 @@ class System:
         list_system =[]
         for key, value in matrices.items():
             list_system.append(value) 
-        print(list_system)
-        print(partie_droite)
+        partie_gauche=list_system # Récupération du terme partie gauche pour plus de lisibilité
+        partie_droite=[[value] for value in partie_droite.values()] # Transforme en matrice colonne de float la partie de droite
+        request.session['partie_gauche']=partie_gauche
+        request.session['partie_droite']=partie_droite
+        print(request.session['partie_gauche'])
+        print(request.session['partie_droite']) 
+    
+    
+    # Appelle la création de matrice et résout par tenseurs pytorch le système et mise en session
+    # @ param session : matrice
+    # @return solution_arrondie : json
+    #
+    def resolv(request):
+        try:
+            partie_gauche = request.session['partie_gauche']
+            partie_droite = request.session['partie_droite']
+            #partie_gauche = [[[4, 5, -0.5, 8],[3, 2, 7, 3], [-1, -4, 4, -3], [1, 7, 3, 2]]]
+            #partie_droite = [[2], [1], [3], [1]]
+            solution_arrondie = []
+            partie_gauche = torch.tensor(partie_gauche, dtype=torch.float)
+            partie_droite = torch.tensor(partie_droite, dtype=torch.float)
+            solution_système = torch.linalg.solve(torch.tensor(partie_gauche), torch.tensor(partie_droite)) 
+            solution_arrondie = torch.round(solution_système * 100) / 100  # Arrondi à 2 décimales
+            solution_arrondie = solution_arrondie.tolist()
+            print(solution_arrondie)
+        except: 
+            solution_arrondie = request.session['partie_gauche']
+        return solution_arrondie
+    
 
-system1 = System([[4, 5, -0.5, 8], [3, 2, 7, 3], [-1, -4, 4, -3], [1, 7, 3, 2]],
-                 [[2], [1], [3], [1]])
-solution = system1.resolv()
-print(solution)
+
+"""
 
 
- 
+
+"""
