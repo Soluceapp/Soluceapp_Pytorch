@@ -6,11 +6,13 @@ class Nettoyage:
     def __init__(self, nettoyage):      
         self._nettoyage = nettoyage
 
+    # Supprimer les charactères inutiles
     def nettoyer_symboles(session_variable):
         symboles = r'[^a-zA-Z0-9_=+\-]'
         variable_nettoyee =re.sub(symboles,'',session_variable)
         return variable_nettoyee
 
+    # 
     def nettoyer_array(session_array):
         return [Nettoyage.nettoyer_symboles(item) for item in session_array]
     
@@ -18,6 +20,8 @@ class Nettoyage:
         return {key: Nettoyage.nettoyer_symboles(value) for key, value in session_dict.items()} 
 
     # supprime les lettres misent en trop et échappe si pas de lettre après chiffre
+    # @ Param chaine : string
+    # @ return equations_brutes : string
     def nettoyage_profondeur(chaine):
         if not chaine: return ""
         resultat = []
@@ -30,12 +34,13 @@ class Nettoyage:
             while j < len(chaine) and chaine[j].isalpha() and chaine[i].isalpha():
                 j += 1
             i = j
-        variable_nette_profondeur = ''.join(resultat)
-        if variable_nette_profondeur == " ":Nettoyage.escape_nettoyage()
-        print(variable_nette_profondeur)
-        return variable_nette_profondeur
+        equations_brutes = ''.join(resultat)
+        if equations_brutes == " ": Nettoyage.escape_nettoyage()
+        return equations_brutes
     
     # Permet d'échapper les cas non prévus en cas d'échec de nettoyage
+    # @ Param request
+    # @ return view : httpresponse
     def escape_nettoyage(request):
         request.session['dico_equation'].clear()
         request.session['compte_equation']=""
@@ -43,7 +48,8 @@ class Nettoyage:
         context = ""
         return render(request, 'pytorch/confsys_v.html',{"context":context} )  
     
-    # permet de passer un chiffre de l'équation de l'autre côté
+    # permet de passer un chiffre de l'équation de l'autre côté 
+    # non utilisée à créer
     def equilibre_equa(chaine):
         equilibre_equa=chaine
         return  equilibre_equa

@@ -63,7 +63,7 @@ class System:
     
     # Appelle la création de matrice et résout par tenseurs pytorch le système et mise en session
     # @ param session : matrice
-    # @return solution_arrondie : json
+    # @return solution_arrondie : list
     #
     def resolv(request):
         try:
