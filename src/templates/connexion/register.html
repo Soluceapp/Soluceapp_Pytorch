@@ -1,23 +1,22 @@
-{% include "../_partials/_base.html"%}
-
-{% for message in messages %}
-<p>{{ message }}</p>
-{% endfor %}
-
+{% include "../_partials/_base.html"%} 
 {% block body %}
-
 <br>
-<form method="post">
-    <div style="margin:20px"><div class="style25">
 
-            <h4>Inscription</h4><br>
+<form  method="POST">
+    <div style="margin:20px"><div class="style25">
+    {% if form.errors %} 
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">  
+    Il y a eu une erreur avec votre inscription.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="X"></button></div> 
+    {% endif %}
+            <h4>Inscription au site</h4><br>
             
             {% csrf_token%}
             {{form.as_p}}
-
-            <br><input type="button" class="btn btn-primary btn-lg" onclick="sub_menu18()" value="Mentions légales">
-            <button type="submit" class="btn btn-primary btn-lg">Valider</button>
-            <input type="button" class="btn btn-primary btn-lg" onclick="sub_menu7()" value="Retour accueil">
+            <button type="submit" name="action" value="valider" class="btn btn-primary" style="margin:5px"   >Valider</button>
+            <button type="submit" class="btn btn-primary" style="margin:5px"  onclick="sub_menu18()" >Mentions légales</button>
+            <button type="submit" name="action" value="retour" class="btn btn-primary" style="margin:5px"  formnovalidate>Retour accueil</button>
+            
 </div></div>
 </form>
 

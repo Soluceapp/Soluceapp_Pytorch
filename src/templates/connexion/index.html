@@ -2,18 +2,18 @@
 
 {% block body %}
 <br>
-<form method="post">
+<form  method="post">
     <div style="margin:20px"><div class="style25">
         {% if user.is_authenticated %}  {{message}}
-            <p>Connecté sous {{user.username}}|<a href="{% url 'connexion:logout'%}">Déconnexion</a> </p>
+            <p>Connecté sous {{user.username}} |<a href="{% url 'connexion:logout'%}">Déconnexion</a> </p>
         {% else %}
 
             <h4 >Connectez-vous</h4>
             {% csrf_token%}
             {{form.as_p}}
-            <input class="btn btn-primary"  style="margin:5px" type="submit" value="se connecter">
-            <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu6()" value="Mot de passe oublié">
-            <input class="btn btn-primary"  style="margin:5px" type="button" onclick="sub_menu9()" value="Inscription">
+            <button type="submit" name="action" class="btn btn-primary" style="margin:5px"  value="se_connecter">Se connecter</button>
+            <button type="submit" name="action" class="btn btn-primary" style="margin:5px"  value="mot_passe_oublie" formnovalidate>Mot de passe oublié</button>
+            <button type="submit" name="action" class="btn btn-primary" style="margin:5px"  value="inscription" formnovalidate>Inscription</button>
         
         {% endif %}
         
