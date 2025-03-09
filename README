@@ -1,33 +1,4 @@
-Author : Thomas Vervisch
+Author : Monsieur Vervisch
 
-Soluceapp Pytorch is a Python application on internet that aims to transform vast masses of data into a system that can be solved by pytorch. Authentication access allows the user to sign up for this free service. The purpose of the app is to use it for research purposes. The algorithms used will translate the data into a system translated by deep learning model.
-
-Fait :
-- Système d'authentification et de récupération de mot de passe.
-- Configurer le système d'envoie de mail de confirmation et de changement de mot de passe.
-- Créer un outil sur internet permettant de trouver une solution à un système (x,y,z,y) ou plus.
-Test être capable de résoudre le système suivant :
-4x + 5y -0.5z +8w = 2
-3x + 2y +7z + 3w = 1
--x -4y +4z -3w = 3
-x +7y +3z +2y = 1
-x=-6.89 y=-0.72  z=1.48  w= 4.24  
-- view de présentation de la matrice calculée.
-- Creation du réseau neuronal source de l'optimisation
-
-Reste à faire :
-
-1/ Coeur de l'application : Etape avant API création de matrice 
-- enregistrement des matrices en base de données à finaliser : formulaire solide à créer.
-- classe d'opération sur les matrices à enrichir d'opérations sur les matrices.
-
-2/ Présentation, ergonomie et sécurité :
-- Inscription : enlever  "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
-- Insertion de données : indicateurs négatifs à corriger
-- Suppression du modèle non fait.
-
-3/ Coeur de l'application : Création de l'API
-- Création de la classe de filtrage massif
-- Création de la classe de réalisation d'opération massif 
-- Création de la fonction threading
-
+This application is an ERP in French.
+This application can create orders, invoices, delivery notes and related accounting records. It can also draw up forecasts and prepare the expected summary documents.
